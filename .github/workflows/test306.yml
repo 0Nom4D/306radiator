@@ -1,0 +1,32 @@
+name: ProjectTests
+
+on: [push, pull_request]
+
+jobs:
+  TestProject:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9.7
+
+      - name: Install Depedencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3-pip
+
+      - name: Launch Subject Tests
+        run: |
+          ./306radiator 1 1 1 >> testResult
+          ./306radiator 1 1 1 1 1 >> testResult
+
+      - name: Launch Error Handling Test 1
+        continue-on-error: true
+        run: ./306radiator 1 1 1 1 >> testResult
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: |
+            ./testResult
