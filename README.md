@@ -43,7 +43,7 @@ DESCRIPTION
 You can also launch unit tests by using the command below at root of the repository:
 
 ```textmate
-$> coverage run -m --source=sources/ pytest --capture=sys -rA tests/
+$> coverage run --rcfile=.coveragerc -m --source=sources/ pytest --capture=sys -rA tests/
 ============================= test session starts ==============================
 platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
 rootdir: /home/nom4d/EPITECH/306radiator
@@ -57,7 +57,7 @@ _____________________                  ...                ______________________
 ...
 =========================== short test summary info ============================
 ...
-============================== 2 passed in 0.01s ===============================
+============================== ... passed in ...s ===============================
 $> coverage report -m
 // In order to show coverage report
 ```
