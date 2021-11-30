@@ -19,8 +19,8 @@ jobs:
 
       - name: Launch Subject Tests
         run: |
-          ./306radiator 1 1 1 >> testResult
-          ./306radiator 1 1 1 1 1 >> testResult
+          ./306radiator 4 1 1 >> testResult
+          ./306radiator 4 1 1 1 1 >> testResult
 
       - name: Launch Error Handling Test 1
         continue-on-error: true
