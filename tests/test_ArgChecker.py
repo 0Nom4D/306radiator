@@ -28,6 +28,28 @@ class TestArgChecker:
         stdout = capsys.readouterr()[0]
         assert stdout == "ValueError at ArgChecker l.16\n"
 
-    def test_CasualArguments(self):
+    def test_WrongCasualArguments(self):
         tChecker = ArgumentsChecker(["1", "1", "1", "1", "1"])
+        assert not tChecker.checkArgsTypes()
+
+    def test_CasualArguments(self):
+        tChecker = ArgumentsChecker(["4", "1", "1", "1", "1"])
         assert tChecker.checkArgsTypes()
+
+    def test_WrongPointArguments(self):
+        tChecker = ArgumentsChecker(["4", "1", "1", "-1", "1"])
+        assert not tChecker.checkArgsTypes()
+
+    def test_WrongSecondPointArguments(self):
+        tChecker = ArgumentsChecker(["4", "1", "1", "4", "1"])
+        assert not tChecker.checkArgsTypes()
+
+    def test_ListOf3Arguments(self):
+        tChecker = ArgumentsChecker(["4", "1", "1"])
+        tChecker.checkArgsTypes()
+        assert tChecker.getArgsList() == [4, 1, 1]
+
+    def test_ListOfArguments(self):
+        tChecker = ArgumentsChecker(["4", "1", "1", "1", "1"])
+        tChecker.checkArgsTypes()
+        assert tChecker.getArgsList() == [4, 1, 1, 1, 1]

@@ -8,6 +8,7 @@
 
 from sources.ArgChecker import ArgumentsChecker
 from sources.exitCode import exitCode
+from sources.Radiator import Radiator
 from sys import argv
 
 
@@ -29,6 +30,7 @@ def main() -> int:
     ArgChecker = ArgumentsChecker(argv[1:])
     if not ArgChecker.checkArgsTypes():
         return exitCode.ERROR
+    Rad = Radiator(ArgChecker.getArgsList())
     return exitCode.OK
 
 
