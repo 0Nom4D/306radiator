@@ -7,6 +7,7 @@
 
 class Matrix:
     def __init__(self, size: int) -> None:
+        self.normalizeSize = size
         self.size = size ** 2
         self.adjacencyMatrix = [[0 for _ in range(size ** 2)] for _ in range(size ** 2)]
 
