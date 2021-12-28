@@ -33,9 +33,9 @@ class AdjacencyMatrix:
                 adjacencyMatrix[i][i + self.normalizeSize] = 4
         self.adjacencyMatrix = np.array(adjacencyMatrix)
 
-    def printMatrix(self, matrix: np.ndarray) -> None:
+    def display(self) -> None:
         for i in range(0, self.size):
             for j in range(0, self.size):
-                print(matrix[i][j], end='\t') if (j + 1) != self.size else print(matrix[i][j], end='')
+                print(self.adjacencyMatrix[i][j], end='\t') if (j + 1) != self.size else print(self.adjacencyMatrix[i][j], end='')
             print()
         print()
