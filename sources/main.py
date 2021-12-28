@@ -30,7 +30,7 @@ def main() -> int:
     ArgChecker = ArgumentsChecker(argv[1:])
     if not ArgChecker.checkArgsTypes():
         return exitCode.ERROR
-    Rad = Radiator(ArgChecker.getArgsList())
+    Radiator(ArgChecker.getArgsList())
     return exitCode.OK
 
 

@@ -5,8 +5,7 @@
 ## test_ArgChecker
 ##
 
-from sources.main import printUsage, main
-import pytest
+from sources.main import printUsage
 
 
 class TestMain:

@@ -41,7 +41,7 @@ class TestArgChecker:
         assert not tChecker.checkArgsTypes()
 
     def test_WrongSecondPointArguments(self):
-        tChecker = ArgumentsChecker(["4", "1", "1", "4", "1"])
+        tChecker = ArgumentsChecker(["4", "1", "1", "1", "3"])
         assert not tChecker.checkArgsTypes()
 
     def test_ListOf3Arguments(self):

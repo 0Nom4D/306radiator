@@ -19,7 +19,7 @@ jobs:
           /opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip
           sudo pip install coverage
           sudo pip install pytest
-          sudo pip install numpy
+          sudo pip3 install numpy
 
       - name: Launch Python Unit Tests
         run: coverage run --rcfile=.coveragerc -m --source=sources/ pytest --capture=sys -rA tests/ >> uTestsResults
