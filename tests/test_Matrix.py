@@ -5,12 +5,31 @@
 ## test_Matrix
 ##
 
-from sources.Matrix import Matrix
+import numpy as np
+import numpy.testing as nptest
+from sources.Matrix import AdjacencyMatrix
 
 
 class TestMatrix:
+
+    checkedArray = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 4, 0, 0, 0, -16, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 4, 0, 0, 4, -16, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 4, 0, 0, 0, -16, 4, 0, 0, 4, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 4, 0, 0, 4, -16, 0, 0, 0, 4, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]]
+
     def test_Properties(self):
-        mChecker = Matrix(2)
-        assert mChecker.normalizeSize == 2
-        assert mChecker.size == 4
-        assert mChecker.adjacencyMatrix == [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+        mChecker = AdjacencyMatrix(4)
+        assert mChecker.normalizeSize == 4
+        assert mChecker.size == 16

@@ -5,7 +5,7 @@
 ## Radiator
 ##
 
-from sources.Matrix import Matrix
+from sources.Matrix import AdjacencyMatrix
 
 
 class Radiator:
@@ -16,7 +16,8 @@ class Radiator:
             self.pointCoordinates = (args[3], args[4])
 
         self.room = [[0 for _ in range(self.roomSize)] for _ in range(self.roomSize)]
-        self.matrixes = Matrix(self.roomSize)
+        self.matrixes = AdjacencyMatrix(self.roomSize)
+        self.matrixes.printMatrix(self.matrixes.adjacencyMatrix)
         pass
 
 
