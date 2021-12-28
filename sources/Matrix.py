@@ -5,6 +5,7 @@
 ## Matrix
 ##
 
+from math import floor, ceil
 import numpy as np
 
 
@@ -27,8 +28,8 @@ class AdjacencyMatrix:
         for i in range(0, self.size):
             if i % self.normalizeSize and (i + 1) % self.normalizeSize and self.normalizeSize < i < (self.size - self.normalizeSize):
                 adjacencyMatrix[i][i] = -16
-                adjacencyMatrix[i - 1][i] = 4
-                adjacencyMatrix[i + 1][i] = 4
+                adjacencyMatrix[i][i + 1] = 4
+                adjacencyMatrix[i][i - 1] = 4
                 adjacencyMatrix[i][i - self.normalizeSize] = 4
                 adjacencyMatrix[i][i + self.normalizeSize] = 4
         self.adjacencyMatrix = np.array(adjacencyMatrix)
@@ -63,11 +64,15 @@ class RadiatorMatrix:
 
     def display(self) -> None:
         for i in range(0, self.size):
-            if round(self.radiatorMatrix[i], 1) == 0.0:
+            if round(self.radiatorMatrix[i], 1) == -0.0:
                 print(0.0)
             else:
-                print('%.1f' % self.radiatorMatrix[i])
-        print()
+                nbToRound = self.radiatorMatrix[i] * 10
+                if nbToRound - floor(nbToRound) < 0.5:
+                    nbToRound = floor(nbToRound)
+                else:
+                    nbToRound = ceil(nbToRound)
+                print('%.1f' % (nbToRound / 10))
 
     def getAtPosition(self, pointCoordinates: (int, int)):
         return self.radiatorMatrix[self.normalizeSize * pointCoordinates[1] + pointCoordinates[0]]
