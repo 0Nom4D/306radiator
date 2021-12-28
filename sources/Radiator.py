@@ -6,7 +6,7 @@
 ##
 
 
-from numpy import linalg
+import numpy as np
 from sources.Matrix import AdjacencyMatrix, RadiatorMatrix
 
 
@@ -16,7 +16,7 @@ class Radiator:
         self.radiatorCoordinates = (args[1], args[2])
         self.adjacency = AdjacencyMatrix(self.roomSize)
         self.radiator = RadiatorMatrix(self.roomSize, self.radiatorCoordinates)
-        InvAdjacency = linalg.inv(self.adjacency.adjacencyMatrix)
+        InvAdjacency = np.linalg.inv(self.adjacency.adjacencyMatrix)
 
         if len(args) == 5:
             self.pointCoordinates = (args[3], args[4])
