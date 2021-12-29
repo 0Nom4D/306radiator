@@ -20,6 +20,8 @@ jobs:
           sudo pip install coverage
           sudo pip install pytest
           sudo pip3 install numpy
+          sudo pip install numpy
+          sudo apt install python3-numpy
 
       - name: Launch Python Unit Tests
         run: coverage run --rcfile=.coveragerc -m --source=sources/ pytest --capture=sys -rA tests/ >> uTestsResults

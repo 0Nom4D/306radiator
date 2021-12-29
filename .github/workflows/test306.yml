@@ -18,6 +18,8 @@ jobs:
           sudo apt-get install python3-pip
           /opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip
           sudo pip3 install numpy
+          sudo pip install numpy
+          sudo apt install python3-numpy
 
       - name: Launch Subject Tests
         run: |
